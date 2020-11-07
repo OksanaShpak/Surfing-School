@@ -90,9 +90,10 @@ body {
     color: #00B2A0;
 }
 
+
 /* Header */
 .header {
-    /* background-image: url(../images/bg.jpg); */
+    background-image: url(../images/bg.jpg);
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -103,6 +104,10 @@ body {
 
 .header::before {
     content: '';
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -120,7 +125,7 @@ body {
     padding-top: 35px;
 }
 
-.logo {
+.logo img {
     max-width: 60px;
 }
 
@@ -128,11 +133,16 @@ body {
     padding-right: 185px;
 }
 
+.menu__btn {
+    display: none;
+}
+
 .menu__list {
     display: flex;
 }
 
-.menu__item+.menu__item {
+.menu__item {
+    /* .menu__item+.menu__item { */
     margin-left: 45px;
 }
 
@@ -142,12 +152,12 @@ body {
     line-height: 28px;
     color: #FFFFFF;
     border-bottom: 1px solid transparent;
-    transition: border-color .5s;
+    transition: border-color 0.5s;
     padding: 0 0 5px;
 }
 
 .menu__link:hover {
-    border-bottom: 1px solid #00B2A0;
+    border-color: #00B2A0;
 }
 
 .header__content {
@@ -185,8 +195,8 @@ body {
     margin-bottom: 93px;
 }
 
-/* About section. Main information about serf school. */
 
+/* About section. Main information about serf school. */
 .about {
     padding: 190px 0 170px;
 }
@@ -212,6 +222,7 @@ body {
 .about__text p:nth-child(2n+1) {
     margin-right: 120px;
 }
+
 
 /* School section. Information about participation in the school.*/
 .school {
@@ -259,7 +270,6 @@ body {
 
 .school__item-title--sun::before {
     content: url(../images/sun-icon.svg);
-
 }
 
 .school__item-title--plane::before {
@@ -314,25 +324,19 @@ body {
     margin-bottom: 30px;
 }
 
+
 /* Instructors section. Informations about instructors' qualification */
-
 .instructors {
-    width: 100vw;
-    max-width: 1920px;
-    margin: 73px auto 0;
-    position: relative;
-
-}
-
-.instructors__image {
-    width: 50%;
-    position: absolute;
-    right: 0;
+    background-image: url(../images/instructors-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: right top;
 }
 
 .instructors__inner {
     padding: 200px 0;
     max-width: 558px;
+    margin-right: 41px;
 }
 
 .instructors__title {
@@ -359,6 +363,10 @@ body {
     margin-bottom: 212px;
 }
 
+.gallery__filter-btn {
+    margin-bottom: 50px;
+}
+
 .gallery__btn {
     background-color: transparent;
     border: none;
@@ -366,16 +374,48 @@ body {
     font-size: 24px;
     line-height: 18px;
     text-transform: uppercase;
-    margin-right: 20px;
-    margin-bottom: 50px;
     outline-color: #00B2A0;
+}
+
+.gallery__btn+.gallery__btn {
+    margin-left: 20px;
 }
 
 .mixitup-control-active {
     color: #00B2A0;
 }
 
+.gallery__btn:hover {
+    color: #00B2A0;
+}
+
 .gallery__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery__item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.gallery__item-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.7);
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.gallery__item-link:hover {
+    opacity: 1;
+}
+
+/* .gallery__content {
     display: grid;
     grid-template-columns: 250px 290px 290px 250px;
     column-gap: 40px;
@@ -415,22 +455,23 @@ body {
 
 .gallery__item img {
     width: 100%;
-}
+} */
 
 .gallery__add {
     display: block;
     align-items: center;
     width: 350px;
-    font-weight: 400;
+    padding: 23px 91px 24px;
+    margin: 50px auto 200px;
+
+    color: #242121;
     font-size: 24px;
+    font-weight: 400;
     line-height: 18px;
-    display: block;
     text-align: center;
     text-transform: uppercase;
-    padding: 23px 91px 24px;
-    color: #242121;
+
     border: 1px solid #C4C4C4;
-    margin: 50px auto 200px;
 }
 
 .blockquote {
@@ -444,6 +485,7 @@ body {
     line-height: 40px;
     color: #242121;
     background-color: #F8F8F8;
+    position: relative;
 }
 
 .blockquote__author {
@@ -452,6 +494,8 @@ body {
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
+    position: absolute;
+    left: 59%;
 }
 
 .gallery__video {
@@ -506,6 +550,9 @@ body {
     background-repeat: no-repeat;
     background-position: bottom center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-blog__image::before {
@@ -514,10 +561,6 @@ body {
     position: absolute;
     height: 800px;
     background: rgba(36, 33, 33, 0.5);
-}
-
-.slider-blog__item {
-    /* padding: 190px 0; */
 }
 
 .slider-blog__item-title {
@@ -561,6 +604,7 @@ body {
     border: none;
 }
 
+/* Team section. */
 .team {
     padding-bottom: 204px;
 }
@@ -588,6 +632,7 @@ body {
     line-height: 18px;
 }
 
+/* Pricing section */
 .pricing {
     background-color: #F8F8F8;
     padding: 200px 0;
@@ -600,36 +645,44 @@ body {
 .pricing__items {
     display: flex;
     justify-content: space-between;
+
 }
 
-ul.pricing__item {
+.pricing__items+.pricing__items {
+    margin-left: 60px;
+}
+
+.pricing__item {
     background-color: #FFFFFF;
     width: 360px;
+    height: 577px;
     padding: 45px 31px;
-    list-style-type: none;
+    display: flex;
+    flex-direction: column;
 }
 
-.pricing__item li {
-    margin-bottom: 20px;
-}
-
-.pricing__item .pricing__item-name {
-    text-align: center;
+.pricing__item-name {
+    display: block;
     font-weight: 400;
     font-size: 36px;
     line-height: 40px;
     color: #01353E;
+    text-align: center;
     margin-bottom: 58px;
 }
 
-.pricing__item .pricing__item-num {
+.pricing__item-list li {
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.pricing__item-num {
     font-weight: 400;
     font-size: 36px;
     line-height: 40px;
     color: #01353E;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    text-align: center;
+    margin-top: auto;
 }
 
 .pricing__item-num span {
@@ -641,6 +694,8 @@ ul.pricing__item {
     margin-left: 5px;
 }
 
+
+/* Map fragment */
 .map {
     padding: 200px 224px;
     position: relative;
@@ -648,10 +703,12 @@ ul.pricing__item {
 
 .map__pin {
     position: absolute;
-    right: 50%;
+    right: 47%;
     top: 29%;
 }
 
+
+/* Contacts form and address section */
 .contacts {
     padding-bottom: 200px;
 }
@@ -711,17 +768,25 @@ ul.pricing__item {
 }
 
 .contacts__questions {
-    width: 50%;
-    padding: 49px 0 0 52px;
+    max-width: 600px;
+    padding: 49px 0 71px 52px;
     background-color: #F8F8F8;
-}
-
-.contacts__questions p {
-    max-width: 327px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 65px;
     font-weight: 400;
     font-size: 24px;
     line-height: 30px;
+}
+
+.contacts__address {
+    font-style: normal;
+}
+
+.contacts__phone a {
+    color: #242121;
+    cursor: pointer;
 }
 
 ul.footer__social {
@@ -730,6 +795,7 @@ ul.footer__social {
     padding-bottom: 200px;
 }
 
+/* Footer with socials */
 .footer__social-list {
     margin-left: 10px;
 }
@@ -740,7 +806,7 @@ ul.footer__social {
     line-height: 18px;
     letter-spacing: 0.6px;
     color: #242121;
-    transition: all .5s;
+    transition: color .5s;
 }
 
 .footer__social-link:hover {
@@ -754,4 +820,208 @@ ul.footer__social {
 
 .footer__logo {
     margin: 0 auto;
+}
+
+
+
+/* Adaptive */
+@media(max-width: 1200px) {
+    .menu {
+        padding-right: 0;
+    }
+
+    .about,
+    .school {
+        padding: 100px 0;
+    }
+
+    .about__text p {
+        max-width: 100%;
+        text-align: justify;
+        padding: 0 10px;
+        margin-bottom: 20px
+    }
+
+    .about__text p:last-child {
+        margin-bottom: 0px;
+    }
+
+    .about__text p:nth-child(2n+1) {
+        margin-right: 0;
+    }
+
+    .title {
+        font-size: 48px;
+        line-height: 65px;
+    }
+
+    .about__title,
+    .school__title {
+        margin-bottom: 50px;
+    }
+}
+
+@media(max-width: 992px) {
+    .header__title {
+        font-size: 180px;
+        line-height: 166px;
+    }
+
+    .header__subtitle {
+        font-size: 23px;
+        line-height: 30px;
+    }
+
+    .menu__list {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: #4DACB4;
+        display: block;
+        text-align: center;
+        z-index: 2;
+        transform: translateY(-200%);
+        transition: all 0.5s;
+    }
+
+    .menu__list.menu__list--active {
+        transform: translateY(0);
+    }
+
+    ul.menu__list {
+        padding: 90px 0 15px;
+    }
+
+    .menu__item {
+        margin-left: 0;
+    }
+
+    .menu__link {
+        display: block;
+        padding: 15px 0;
+        color: #FFFFFF;
+    }
+
+    .logo {
+        position: relative;
+        z-index: 3;
+    }
+
+    .menu__btn {
+        display: block;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-right: 15px;
+        position: relative;
+        z-index: 3;
+        fill: white;
+    }
+
+    .menu__btn path,
+    .menu__btn rect {
+        fill: white;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+    .school__info {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .school__inner {
+        display: block;
+    }
+
+    .school__text {
+        margin-top: 15px;
+        width: 100%;
+        text-align: justify;
+    }
+
+    .school__text p:last-child {
+        margin-bottom: 0;
+    }
+
+    .school__items {
+        display: block;
+    }
+
+    .school__item {
+        max-width: 100%;
+        margin-bottom: 40px
+    }
+
+    .school__item-title {
+        max-width: 100%;
+    }
+
+}
+
+@media(max-width: 768px) {
+    .header__title {
+        font-size: 140px;
+        line-height: 130px;
+    }
+
+    .header__subtitle {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .title,
+    .about__title,
+    .school__title {
+        text-align: left;
+        font-size: 40px;
+        line-height: 42px;
+    }
+
+}
+
+@media(max-width: 640px) {
+    .header__title {
+        font-size: 120px;
+        line-height: 120px;
+    }
+
+    .header__subtitle {
+        font-size: 15px;
+        line-height: 23px;
+    }
+}
+
+@media(max-width: 440px) {
+    .header__title {
+        font-size: 100px;
+        line-height: 110px;
+    }
+
+    .header__subtitle {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .title,
+    .about__title,
+    .school__title {
+        font-size: 28px;
+        line-height: 42px;
+    }
+}
+
+@media(max-width: 340px) {
+    .header__title {
+        font-size: 80px;
+        line-height: 100px;
+    }
+
+    .header__subtitle {
+        font-size: 14px;
+        line-height: 16px;
+    }
 }
