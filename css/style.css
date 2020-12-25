@@ -412,7 +412,7 @@ body {
     margin-right: 0;
 }
 
-.gallery__content .gallery__item:not(:nth-child(2n)) {
+.gallery__content:not(.gallery__content-reverse) .gallery__item:not(:nth-child(2n)) {
     margin-right: var(--spacing);
 }
 
